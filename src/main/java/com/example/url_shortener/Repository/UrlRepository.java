@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UrlRepository extends JpaRepository<Url, Long> {
     Url findByUniqueIdentifier(String uuid);
+    void deleteByUniqueIdentifier(String uuid);
 }

@@ -27,6 +27,11 @@ public class ShortenUrlService {
 
     public String getUrl(String uuid) {
         Url url = urlRepository.findByUniqueIdentifier(uuid);
-        return url.getUrl();
+        return url == null ? null : url.getUrl();
+    }
+
+    @Transactional
+    public void deleteUrl(String uuid) {
+        urlRepository.deleteByUniqueIdentifier(uuid);
     }
 }
